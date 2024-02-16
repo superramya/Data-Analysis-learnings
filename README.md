@@ -1,3 +1,3 @@
 
-                        Data Analyst Course
-This project is about my SQL journey. Working on SQL queries to obtain the data insights.
+                        
+SQL project - It has SQL queries for different datasets.
