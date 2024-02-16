@@ -1,4 +1,4 @@
-Updating data-
+--Updating data
 
 Update EmployeeDetails
 Set Gender = 'Female'
@@ -7,9 +7,8 @@ Where FirstName = 'Marsh' and LastName = 'Mellow'
 Delete From 'TableName'
 Where 'filter name'
 
----------------------------------------------------------------
 
-Joins-
+--Joins
 
 Select Jobtitle, Avg(Salary)
 From RamyaDemo.dbo.EmployeeDetails
@@ -18,12 +17,8 @@ Inner Join RamyaDemo.dbo.SalaryInformation
 Where Jobtitle = 'Developer'
 Group by Jobtitle
 
-----------------------------------------------------------------
 
-
-/*
-Case Statement
-*/
+--Case Statement
 
 Select FirstName, LastName, Age,
 Case
@@ -47,13 +42,9 @@ From RamyaDemo.dbo.EmployeeDetails
 Join RamyaDemo.dbo.SalaryInformation
 	ON EmployeeDetails.EmployeeID = SalaryInformation.EmployeeID
 
----------------------------------------------------------------------------------------
 
+--Having Clause
 
-
-/*
-Having Clause
-*/
 
 Select Jobtitle, Avg(Salary)
 From RamyaDemo.dbo.EmployeeDetails
@@ -63,10 +54,9 @@ Group by Jobtitle
 Having Avg(Salary) > 70000
 Order by Avg(Salary)
 
------------------------------------------------------------------------------
 
 
-/* Aliasing */
+--Aliasing 
 
 Select FirstName + ' ' + LastName As FullName
 From [RamyaDemo].[dbo].[EmployeeDetails]
@@ -76,9 +66,9 @@ From [RamyaDemo].[dbo].[EmployeeDetails] AS Demo
 JOIN [RamyaDemo].[dbo].[SalaryInformation] AS Sal
 	ON Demo.EmployeeID = Sal.EmployeeID
 
-----------------------------------------------------------------------------
 
-/* Partition by */
+
+--Partition by
 
 SELECT FirstName, LastName, Gender, Salary,
 	COUNT(Gender) OVER (PARTITION BY Gender) AS TotalGender
@@ -86,9 +76,9 @@ FROM RamyaDemo.dbo.EmployeeDetails demo
 JOIN RamyaDemo.dbo.SalaryInformation sal
 	ON demo.EmployeeID = sal.EmployeeID
 
------------------------------------------------------------------------------
 
-/* Group By */
+
+--Group By
 
 SELECT FirstName, LastName, Gender, Salary, COUNT(Gender)
 FROM RamyaDemo.dbo.EmployeeDetails demo
@@ -103,11 +93,11 @@ JOIN RamyaDemo.dbo.SalaryInformation sal
 	ON demo.EmployeeID = sal.EmployeeID
 GROUP BY Gender
 
------------------------------------------------------------------------------------
 
-/* CTEs */
 
-like a subquery - put in temporary place to get the data
+--CTEs
+
+--like a subquery - put in temporary place to get the data
 
 WITH CTE_Employee AS
  (SELECT FirstName, LastName, Gender, Salary,
@@ -121,12 +111,11 @@ WHERE Salary > 70000
 SELECT FirstName, AvgSalary
 FROM CTE_Employee
 
----------------------------------------------------------------------------------------
 
 
-/* Temp Tables */
+--Temp Tables
 
-saves runtime
+--saves runtime
 
 CREATE TABLE #Temp_Employee(
 EmployeeID int,
@@ -145,7 +134,7 @@ INSERT INTO #Temp_Employee
 SELECT *
 FROM RamyaDemo..SalaryInformation
 
-******
+
 
 CREATE TABLE #temp_Employee2 (
 Jobtitle varchar(50),
