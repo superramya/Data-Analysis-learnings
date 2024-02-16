@@ -43,8 +43,7 @@ WHERE continent is not null
 GROUP BY Location
 ORDER By totalDeathCount desc
 
---Looking at the data continent based
---Break down things by continent
+--Looking at the data that is continent based
 
 SELECT location, MAX(cast(total_deaths as int)) as totalDeathCount
 FROM RamyaPortfolio..CovidDeaths
